@@ -1,0 +1,248 @@
+/**
+ * VPM Tooltips
+ *
+ * (c) 2016 Van Patten Media Inc.
+ *
+ * Readme, license, and more information:
+ * https://github.com/vanpattenmedia/vpm-tooltips
+ */
+
+
+/**
+ * Default variables
+ */
+
+$vpm-tooltip--background: black !default;
+$vpm-tooltip--text-color: white !default;
+
+$vpm-tooltip--font-family: inherit !default;
+$vpm-tooltip--font-size: inherit !default;
+$vpm-tooltip--text-shadow: none !default;
+
+$vpm-tooltip--arrow-width: 0.875em !default;
+$vpm-tooltip--arrow-height: 0.6em !default;
+
+$vpm-tooltip--border-radius: 2px !default;
+$vpm-tooltip--padding: 0.45em 0.75em !default;
+$vpm-tooltip--z-index: 99 !default;
+
+
+/**
+ * Element base
+ */
+
+[data-tip-tl],
+[data-tip-tr],
+[data-tip-tm],
+[data-tip-bl],
+[data-tip-br],
+[data-tip-bm] {
+	position: relative;
+	overflow: visible;
+}
+
+
+/**
+ * CSS arrow base
+ */
+
+[data-tip-tl]:before,
+[data-tip-tr]:before,
+[data-tip-tm]:before,
+[data-tip-bl]:before,
+[data-tip-br]:before,
+[data-tip-bm]:before {
+	display: none;
+	content: "";
+	width: 0;
+	border: solid transparent;
+	position: absolute;
+	z-index: 99;
+}
+
+
+/**
+ * Tooltip text container
+ */
+
+[data-tip-tl]:after,
+[data-tip-tr]:after,
+[data-tip-tm]:after,
+[data-tip-bl]:after,
+[data-tip-br]:after,
+[data-tip-bm]:after {
+	display: none;
+
+	// Type & style
+	white-space: nowrap;
+	font-family: $vpm-tooltip--font-family;
+	font-size: $vpm-tooltip--font-size;
+	color: $vpm-tooltip--text-color;
+	background: $vpm-tooltip--background;
+	border-radius: $vpm-tooltip--border-radius;
+	text-shadow: $vpm-tooltip--text-shadow;
+
+	// Position & size
+	position: absolute;
+	z-index: $vpm-tooltip--z-index;
+	padding: $vpm-tooltip--padding;
+}
+
+[data-tip-tm]:after,
+[data-tip-bm]:after {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+/**
+ * Arrow pointing down (tooltip above target)
+ */
+
+[data-tip-bl],
+[data-tip-br],
+[data-tip-bm] {
+	// Arrow
+	&:before {
+		border-top-color: $vpm-tooltip--background;
+		bottom: 100%;
+	}
+
+	// Text container
+	&:after {
+		bottom: 100%;
+		margin-bottom: $vpm-tooltip--arrow-height;
+	}
+}
+
+[data-tip-bl] {
+	// Arrow
+	&:before {
+		border-width: $vpm-tooltip--arrow-height $vpm-tooltip--arrow-width 0 0;
+		left: 50%;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-bl);
+		border-bottom-left-radius: 0;
+		left: 50%;
+	}
+}
+
+[data-tip-br] {
+	// Arrow
+	&:before {
+		border-width: $vpm-tooltip--arrow-height 0 0 $vpm-tooltip--arrow-width;
+		right: 50%;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-br);
+		border-bottom-right-radius: 0;
+		right: 50%;
+	}
+}
+
+[data-tip-bm] {
+	// Arrow
+	&:before {
+		border-width: $vpm-tooltip--arrow-height $vpm-tooltip--arrow-width 0;
+		left: 50%;
+		margin-left: $vpm-tooltip--arrow-width * -1;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-bm);
+	}
+}
+
+
+/**
+ * Arrow pointing up (tooltip below target)
+ */
+
+[data-tip-tl],
+[data-tip-tr],
+[data-tip-tm] {
+	// Arrow
+	&:before {
+		border-bottom-color: $vpm-tooltip--background;
+		top: calc( 100% + 1px );
+	}
+
+	// Text container
+	&:after {
+		top: calc( 100% + 1px );
+		margin-top: $vpm-tooltip--arrow-height;
+	}
+}
+
+[data-tip-tl] {
+	// Arrow
+	&:before {
+		border-width: 0 $vpm-tooltip--arrow-width $vpm-tooltip--arrow-height 0;
+		left: 50%;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-tl);
+		border-top-left-radius: 0;
+		left: 50%;
+	}
+}
+
+[data-tip-tr] {
+	// Arrow
+	&:before {
+		border-width: 0 0 $vpm-tooltip--arrow-height $vpm-tooltip--arrow-width;
+		right: 50%;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-tr);
+		border-top-right-radius: 0;
+		right: 50%;
+	}
+}
+
+[data-tip-tm] {
+	// Arrow
+	&:before {
+		border-width: 0 $vpm-tooltip--arrow-width $vpm-tooltip--arrow-height;
+		left: 50%;
+		margin-left: $vpm-tooltip--arrow-width * -1;
+	}
+
+	// Text container
+	&:after {
+		content: attr(data-tip-tm);
+	}
+}
+
+
+/**
+ * Visible tooltip (hover state)
+ */
+
+// Arrow
+[data-tip-tl]:hover:before,
+[data-tip-tr]:hover:before,
+[data-tip-tm]:hover:before,
+[data-tip-bl]:hover:before,
+[data-tip-br]:hover:before,
+[data-tip-bm]:hover:before,
+
+// Text container
+[data-tip-tl]:hover:after,
+[data-tip-tr]:hover:after,
+[data-tip-tm]:hover:after,
+[data-tip-bl]:hover:after,
+[data-tip-br]:hover:after,
+[data-tip-bm]:hover:after {
+	display: inline-block;
+}

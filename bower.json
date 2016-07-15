@@ -1,0 +1,12 @@
+{
+  "name": "vpm-tooltips",
+  "main": "sass/_tooltips.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests",
+    "lib"
+  ]
+}

@@ -39,53 +39,41 @@ $vpm-tooltip--z-index: 99 !default;
 [data-tip-bm] {
 	position: relative;
 	overflow: visible;
-}
 
+	// Arrow
+	&:before {
+		display: none;
+		content: "";
+		width: 0;
+		border: solid transparent;
+		position: absolute;
+		z-index: 99;
+	}
 
-/**
- * CSS arrow base
- */
+	// Text container
+	&:after {
+		display: none;
 
-[data-tip-tl]:before,
-[data-tip-tr]:before,
-[data-tip-tm]:before,
-[data-tip-bl]:before,
-[data-tip-br]:before,
-[data-tip-bm]:before {
-	display: none;
-	content: "";
-	width: 0;
-	border: solid transparent;
-	position: absolute;
-	z-index: 99;
-}
+		// Type & style
+		white-space: nowrap;
+		font-family: $vpm-tooltip--font-family;
+		font-size: $vpm-tooltip--font-size;
+		color: $vpm-tooltip--text-color;
+		background: $vpm-tooltip--background;
+		border-radius: $vpm-tooltip--border-radius;
+		text-shadow: $vpm-tooltip--text-shadow;
 
+		// Position & size
+		position: absolute;
+		z-index: $vpm-tooltip--z-index;
+		padding: $vpm-tooltip--padding;
+	}
 
-/**
- * Tooltip text container
- */
-
-[data-tip-tl]:after,
-[data-tip-tr]:after,
-[data-tip-tm]:after,
-[data-tip-bl]:after,
-[data-tip-br]:after,
-[data-tip-bm]:after {
-	display: none;
-
-	// Type & style
-	white-space: nowrap;
-	font-family: $vpm-tooltip--font-family;
-	font-size: $vpm-tooltip--font-size;
-	color: $vpm-tooltip--text-color;
-	background: $vpm-tooltip--background;
-	border-radius: $vpm-tooltip--border-radius;
-	text-shadow: $vpm-tooltip--text-shadow;
-
-	// Position & size
-	position: absolute;
-	z-index: $vpm-tooltip--z-index;
-	padding: $vpm-tooltip--padding;
+	// Make tooltip visible on hover
+	&:hover:before,
+	&:hover:after {
+		display: inline-block;
+	}
 }
 
 [data-tip-tm]:after,
@@ -222,27 +210,4 @@ $vpm-tooltip--z-index: 99 !default;
 	&:after {
 		content: attr(data-tip-tm);
 	}
-}
-
-
-/**
- * Visible tooltip (hover state)
- */
-
-// Arrow
-[data-tip-tl]:hover:before,
-[data-tip-tr]:hover:before,
-[data-tip-tm]:hover:before,
-[data-tip-bl]:hover:before,
-[data-tip-br]:hover:before,
-[data-tip-bm]:hover:before,
-
-// Text container
-[data-tip-tl]:hover:after,
-[data-tip-tr]:hover:after,
-[data-tip-tm]:hover:after,
-[data-tip-bl]:hover:after,
-[data-tip-br]:hover:after,
-[data-tip-bm]:hover:after {
-	display: inline-block;
 }

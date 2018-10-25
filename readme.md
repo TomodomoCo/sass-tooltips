@@ -1,12 +1,28 @@
-# VPM Tooltips
+# sass-tooltips
 
 **A portable Sass-based approach for simple text tooltips on arbitrary HTML elements.**
 
-This library is intended to be installed via Bower, but you can also download the `sass/_tooltips.scss` file directly into your project.
+Install via `npm` (or `yarn` if that's your thing):
+
+```
+npm install --save-dev @tomodomo/sass-tooltips
+```
 
 ## Usage
 
-After `@import`-ing the file, add `data-tip-[direction]="Tooltip content here"` to the element you would like the tooltip targeted at, where `[direction]` is one of `tl`, `tm`, `tr`, `bl`, `bm`, or `br` (an abbreviation for top/bottom, left/middle/right). This corresponds to the direction the tooltip arrow is pointing.
+`sass-tooltips` is [eyeglass](https://github.com/sass-eyeglass/eyeglass)-aware. If you're using it, simply import with…
+
+```scss
+@import "sass-tooltips";
+```
+
+Otherwise, something like this should work:
+
+```scss
+@import "path/to/node_modules/@tomodomo/sass-tooltips/sass";
+```
+
+Then, in your HTML, add `data-tip-[direction]="Tooltip content here"` to the element you would like the tooltip targeted at, where `[direction]` is one of `tl`, `tm`, `tr`, `bl`, `bm`, or `br` (an abbreviation for top/bottom, left/middle/right). This corresponds to the direction the tooltip arrow is pointing.
 
 For example:
 
@@ -16,26 +32,26 @@ For example:
 
 You can see how each direction is rendered in the screenshot below:
 
-![Screenshot of VPM Tooltips in action](https://raw.githubusercontent.com/vanpattenmedia/vpm-tooltips/gh-pages/screenshot.png)
+![Screenshot of the sass-tooltips library showing the directions that tooltips can point](https://raw.githubusercontent.com/TomodomoCo/sass-tooltips/gh-pages/screenshot.png)
 
 ## Options
 
-There are a number of Sass variables you can customise. The variables, and their default values, are as follows:
+The library can be customised with a number of variables. The variables, and their default values, are as follows:
 
 ```sass
-$vpm-tooltip--background: black;
-$vpm-tooltip--text-color: white;
+$sass-tooltip--background: black;
+$sass-tooltip--text-color: white;
 
-$vpm-tooltip--font-family: inherit;
-$vpm-tooltip--font-size: inherit;
-$vpm-tooltip--text-shadow: none;
+$sass-tooltip--font-family: inherit;
+$sass-tooltip--font-size: inherit;
+$sass-tooltip--text-shadow: none;
 
-$vpm-tooltip--arrow-width: 0.875em;
-$vpm-tooltip--arrow-height: 0.6em;
+$sass-tooltip--arrow-width: 0.875em;
+$sass-tooltip--arrow-height: 0.6em;
 
-$vpm-tooltip--border-radius: 2px;
-$vpm-tooltip--padding: 0.45em 0.75em;
-$vpm-tooltip--z-index: 99;
+$sass-tooltip--border-radius: 2px;
+$sass-tooltip--padding: 0.45em 0.75em;
+$sass-tooltip--z-index: 99;
 ```
 
 ## Caveats
@@ -48,14 +64,16 @@ Placing your tooltip text in the data attribute alone is _not sufficient for acc
 
 This method of inserting tooltips was inspired by the [Daniel-Hug/tooltips](https://github.com/Daniel-Hug/tooltips) library.
 
-## License
+## About Tomodomo
 
-**Copyright (c) 2016 [Van Patten Media Inc.](https://www.vanpattenmedia.com/) All rights reserved.**
+Tomodomo is a creative agency for magazine publishers. We use custom design and technology to speed up your editorial workflow, engage your readers, and build sustainable subscription revenue for your business.
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+Learn more at [tomodomo.co](https://tomodomo.co) or email us: [hello@tomodomo.co](mailto:hello@tomodomo.co)
 
-*   Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-*   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-*   Neither the name of the organization nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+## License & Conduct
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+This project is licensed under the terms of the MIT License, included in `LICENSE.md`.
+
+All open source Tomodomo projects follow a strict code of conduct, included in `CODEOFCONDUCT.md`. We ask that all contributors adhere to the standards and guidelines in that document.
+
+Thank you!

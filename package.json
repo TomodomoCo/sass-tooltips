@@ -17,6 +17,9 @@
     "sass",
     "scss"
   ],
+  "main": "sass/index.scss",
+  "sass": "sass/index.scss",
+  "style": "sass/index.scss",
   "eyeglass":  {
     "sassDir": "sass",
     "exports": false,

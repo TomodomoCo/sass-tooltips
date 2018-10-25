@@ -1,0 +1,26 @@
+{
+  "name": "@tomodomo/sass-tooltips",
+  "version": "1.0.0",
+  "description": "A portable Sass-based approach for simple text tooltips on arbitrary HTML elements",
+  "author": "Tomodomo <hello@tomodomo.co>",
+  "license": "MIT",
+  "homepage": "https://github.com/TomodomoCo/sass-tooltips",
+  "bugs": {
+    "url": "https://github.com/TomodomoCo/sass-tooltips/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TomodomoCo/sass-tooltips.git"
+  },
+  "keywords": [
+    "eyeglass-module",
+    "sass",
+    "scss"
+  ],
+  "eyeglass":  {
+    "sassDir": "sass",
+    "exports": false,
+    "name": "sass-tooltips",
+    "needs": "*"
+  }
+}
